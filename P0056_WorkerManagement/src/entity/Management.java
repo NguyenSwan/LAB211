@@ -65,6 +65,10 @@ public class Management {
          else if(mode == 2){
             if(o.getSalary()>0){
               update = o.getSalary()-money;
+                if(update <= 0){
+                    System.out.println("Salary mustbe >0 ");
+                    return;
+                }
                  status = "DOWN";
             }
          }
