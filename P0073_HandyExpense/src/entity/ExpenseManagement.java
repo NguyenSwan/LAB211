@@ -28,7 +28,7 @@ public class ExpenseManagement {
         }
         
         Date dateInput = check.getDate("Enter Date: ", "Date invalid", "dd/MM/yyyy");
-        SimpleDateFormat simpleDate = new SimpleDateFormat("dd-MM-yyyy");
+        SimpleDateFormat simpleDate = new SimpleDateFormat("dd-MMM-yyyy");
         String date = simpleDate.format(dateInput);
         
         double amount = check.getDouble("Enter amount: ", 0, Double.MAX_VALUE);
