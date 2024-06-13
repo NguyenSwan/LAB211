@@ -67,10 +67,5 @@ public class Worker {
     public void setWorkLocation(String workLocation) {
         this.workLocation = workLocation;
     }
-
-     @Override
-    public String toString() {
-        return String.format("%-5s | %-10s | %-5d | %-10f | %-20s",code,name,age,salary,workLocation);
-    }
     
 }
