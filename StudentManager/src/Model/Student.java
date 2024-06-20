@@ -55,10 +55,12 @@ public class Student implements Comparable<Student> {
         return "";
     }
 
+    
     @Override
     public int compareTo(Student o) {
         return this.name.compareTo(o.name);
     }
+    
     public String displayStudentReport() {
         Map<String, Integer> coursesName = new HashMap<>();
         for (Course cs : course) {
