@@ -6,6 +6,9 @@ package utils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -50,23 +53,39 @@ public class Validation {
      return n;
     }
     
+//    public String getDate(String mess, String error, String format){
+//        SimpleDateFormat simpleDate = new SimpleDateFormat(format);
+//        Date date = null;
+////        simpleDate.setLenient(false);  //ktra ngay 1 cach nghiem ngat hon
+//        String value = "";
+//        while (true) {            
+//            try {
+//                System.out.print(mess);
+//                value = sc.nextLine();
+//                date = simpleDate.parse(value);
+//                break;
+//            } catch (ParseException e) {
+//                System.out.println(error);
+//            }
+//        }
+//        return value;
+//    }
+    
     public String getDate(String mess, String error, String format){
-        SimpleDateFormat simpleDate = new SimpleDateFormat(format);
-        Date date = null;
-//        simpleDate.setLenient(false);  //ktra ngay 1 cach nghiem ngat hon
-        String value = "";
-        while (true) {            
-            try {
-                System.out.print(mess);
-                value = sc.nextLine();
-                date = simpleDate.parse(value);
-                break;
-            } catch (ParseException e) {
-                System.out.println(error);
-            }
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(format);
+    String value = "";
+    while (true) {            
+        try {
+            System.out.print(mess);
+            value = sc.nextLine();
+            LocalDate.parse(value, formatter);
+            break;
+        } catch (DateTimeParseException e) {
+            System.out.println(error + " (Format: " + format + ")");
         }
-        return value;
     }
+    return value;
+}
     
     public String getString(String regex, String mess){
         String str = null;
