@@ -29,7 +29,16 @@ public class TaskManagement {
         String date = check.getDate("Date: ", "Invalid", "dd-MM-yyyy");
         
         double from = check.getDouble("From: ", 8.0, 17.5);
-        double to = check.getDouble("To: ", 8.0, 17.5);
+        // double to = check.getDouble("To: ", 8.0, 17.5);
+        double to;
+        while (true) {
+            to = check.getDouble("To: ", 8.0, 17.5);
+            if (to < from) {
+                System.out.println("To time must be greater than or equal to From time. Please try again.");
+            } else {
+                break;
+            }
+        }
         
         String assignee = check.getString("[a-zA-Z ]", "Assignee: ");
         String reviewer = check.getString("[a-zA-Z ]", "Reviewer: ");
