@@ -67,7 +67,7 @@ public class Validation {
     }
     
     
-    public static Worker getWorker (String code,List<Worker> wList){
+    public Worker getWorker (String code,List<Worker> wList){
         for (Worker o : wList) {
             if(o.getCode().equalsIgnoreCase(code)){
                 return o;
