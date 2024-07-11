@@ -42,7 +42,7 @@ public class Validation {
           System.out.print(mess);
           n = Double.parseDouble(sc.nextLine());
           if(min<= n && n<=max)
-              break;
+              return n;
           throw new NumberFormatException();
       }
       catch(NumberFormatException ex){
@@ -50,7 +50,6 @@ public class Validation {
         
       }
      }
-     return n;
     }
     
 //    public String getDate(String mess, String error, String format){
