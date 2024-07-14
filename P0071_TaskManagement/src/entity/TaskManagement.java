@@ -28,25 +28,27 @@ public class TaskManagement {
         
         String date = check.getDate("Date: ", "Invalid date format", "dd-MM-yyyy");
         
+   String PLAN_VALID = "^(8|9|10|11|12|13|14|15|16|17)\\.([0|5])$";
+ 
     double from = 0;
     while (true) {
         from = check.getDouble("From: ", 8.0, 17.5);
-        if (from % 0.5 == 0) {
+        if (String.valueOf(from).matches(PLAN_VALID)){
             break;
         } else {
-            System.out.println("From time must be in the format of 8.5, 9.0, 9.5,..., 17.5. Please try again.");
+            System.out.println("From time must be in format");
         }
     }
     
     double to;
     while (true) {
         to = check.getDouble("To: ", 8.0, 17.5);
-        if (to % 0.5 == 0 && to >= from) {
+        if (String.valueOf(to).matches(PLAN_VALID) && to >= from) {
             break;
         } else if (to < from) {
             System.out.println("To time must be greater than or equal to From time. Please try again.");
         } else {
-            System.out.println("To time must be in the format of 8.5, 9.0, 9.5,..., 17.5. Please try again.");
+            System.out.println("To time must be in the format");
         }
     }
 //        double to = check.getDouble("To: ", 8.0, 17.5);
